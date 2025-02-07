@@ -80,7 +80,7 @@ export default function Flight_Search({onExploreFlightSearch}) {
          my:3, px:3, py:2, borderRadius:2, boxShadow:3 }}>
             <Stack direction='row' spacing={3} sx={{display:'flex', justifyContent:"flex-start", mb:2}}>
                 <Box>
-                    <FormControl sx={{minWidth:120}} variant='standard'>
+                    <FormControl variant='standard'>
                         <Select
                             labelId="trip-select-label"
                             id="trip-select"
@@ -108,7 +108,7 @@ export default function Flight_Search({onExploreFlightSearch}) {
                     />
                 </Box>
                 <Box>
-                    <FormControl sx={{minWidth:120}} variant='standard'>
+                    <FormControl variant='standard'>
                         <Select
                             labelId="cabinClass-select-label"
                             id="cabinClass-select"

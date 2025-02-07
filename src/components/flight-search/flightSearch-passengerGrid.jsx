@@ -38,7 +38,11 @@ export default function Passenger_Adder({primaryText,secondarytext,amount,person
             </Stack>
             <Box sx={{flexGrow:1, mx:2}}></Box>
             <Box>
-                <Button disableElevation sx={{minWidth:30}} color='primary' variant='contained' size='small' onClick={handleMinus}>-</Button>
+                <Button disableElevation sx={{minWidth:30}} color='primary' variant='contained' size='small' onClick={handleMinus}
+                    disabled = {amount <= 0 ? true : amount <= 1 && personType.includes('adults') ? true : false}
+                >
+                    -
+                    </Button>
             </Box>
             <Box sx={{mx:2}}>
                 <Typography>{amount}</Typography>

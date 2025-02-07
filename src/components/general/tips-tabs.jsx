@@ -96,7 +96,7 @@ function TabLabel(props) {
     >
       <ListItemButton
         selected={selectedIndex === itemIndex}
-        sx={{width:'100%' ,height:"100%",display:'flex',flexGrow:1, flexDirection:"row"}}
+        sx={{width:{xs:200,md:"100%"} ,height:"100%",display:'flex',flexGrow:1}}
       >
         <ListItemIcon>
           <PreferredIcon />
@@ -149,7 +149,7 @@ export default function VerticalTabs() {
         onChange={handleChange}
         aria-label="usage tips"
         centered={true}
-        sx={{minWidth:"30%",height:"100%",display:'flex',flexDirection:"column",flexGrow:1}}
+        sx={{minWidth:{xs:"50%",md:"30%"},height:"100%",display:'flex',flexDirection:"column",flexGrow:1}}
       >
         <Tab 
           label={

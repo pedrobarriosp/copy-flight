@@ -64,7 +64,7 @@ export default function FlightSelection_Table({requestOptions,isComponentActive}
 
     return (
         <Box>
-            <Box sx={{mb:2}}>
+            <Box sx={{mb:2, px:{xs:3,md:0}}}>
                 <Typography>
                     Top departing Flights
                 </Typography>

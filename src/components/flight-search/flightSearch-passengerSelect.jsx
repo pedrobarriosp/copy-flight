@@ -21,7 +21,6 @@ export default function Passenger_Popover({adultRef,childref,infantRef}) {
   const [totalPassengerAmount, setTotalPassengerAmount] = React.useState(1)
   const [lapAlertDisplay,setLapAlertDisplay] = React.useState('none')
   const [seatAlertDisplay,setSeatAlertDisplay] = React.useState('none')
-  const [buttonsDisplay,setButtonsDisplay] = React.useState('inline')
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -115,11 +114,6 @@ export default function Passenger_Popover({adultRef,childref,infantRef}) {
             setSeatAlertDisplay(currentSeat)
             break;
     }
-    if(currentSeat == 'none' && currentLap == 'none'){
-        setButtonsDisplay('inline')
-    } else {
-        setButtonsDisplay('none')
-    }
   }
 
 
@@ -180,7 +174,7 @@ export default function Passenger_Popover({adultRef,childref,infantRef}) {
                 <Box sx={{display:'flex', justifyContent:'flex-end'}}>
                     <Typography variant='overline'>Max. {UPPERLIMIT} passengers</Typography>
                 </Box>
-                <Stack direction="row" sx={{display:'flex', justifyContent:"flex-end"}}>
+                <Stack direction="column" sx={{display:'flex', alignItems:"flex-end"}}>
                     <Box sx={{maxWidth:190}} style={{display:seatAlertDisplay}}>
                         <Alert id='seatinfant-alert' severity="error">
                             You must have at least one adult per two infants.
@@ -191,9 +185,16 @@ export default function Passenger_Popover({adultRef,childref,infantRef}) {
                             You must have at least 1 adult per infant on lap
                         </Alert>
                     </Box>
-                    <Button id='passengerchanges-button' style={{display:buttonsDisplay}} variant="text" onClick={handleClose}>
-                        Done
-                    </Button>
+                    {lapAlertDisplay == 'none' && seatAlertDisplay == 'none'
+                        ?
+                            <Box>
+                                <Button id='passengerchanges-button' variant="text" onClick={handleClose}>
+                                    Done
+                                </Button>
+                            </Box>
+                        :
+                            <></>
+                    }
                 </Stack>
             </Box>
             
