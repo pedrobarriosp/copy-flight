@@ -49,9 +49,9 @@ export default function Footer_DialogSelect({identifier,dialogTitle, DialogIcon,
   };
 
   return (
-    <div>
-      <Button onClick={handleClickOpen}>
-        <DialogIcon/>{dialogText}
+    <Box>
+      <Button startIcon={<DialogIcon/>} onClick={handleClickOpen}>
+        {dialogText}
       </Button>
       <Dialog disableEscapeKeyDown open={open} onClose={handleClose}>
         <DialogTitle>{dialogTitle}</DialogTitle>
@@ -61,7 +61,7 @@ export default function Footer_DialogSelect({identifier,dialogTitle, DialogIcon,
                 <RadioGroup
                     aria-labelledby={`${identifier}-controlled-radio-buttons-group`}
                     name={`${identifier}-controlled-radio-buttons-group`}
-                    value={currentValue}
+                    value={radioValue}
                     onChange={handleChange}
                 >
                   {dialogOptions.map((option,index) => {
@@ -76,6 +76,6 @@ export default function Footer_DialogSelect({identifier,dialogTitle, DialogIcon,
           <Button name={`${identifier}-button-accept`} onClick={handleClose}>Ok</Button>
         </DialogActions>
       </Dialog>
-    </div>
+    </Box>
   );
 }

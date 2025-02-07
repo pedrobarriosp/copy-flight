@@ -5,6 +5,8 @@ import Tab from '@mui/material/Tab';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
+import TimelineIcon from '@mui/icons-material/Timeline';
+import NotificationAddIcon from '@mui/icons-material/NotificationAdd';
 
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
@@ -16,16 +18,16 @@ import ListItemText from "@mui/material/ListItemText";
 
 const TABLABELS = [
   {
-    primary:"One",
-    secondary:"One-secondary"
+    primary:"This is Tip #1",
+    secondary:"This is the secondary text for tip #1"
   },
   {
-    primary:"Two",
-    secondary:"Two-secondary"
+    primary:"This is Tip #2",
+    secondary:"This is the secondary text for tip #2"
   },
   {
-    primary:"Three",
-    secondary:"Three-secondary"
+    primary:"This is Tip #3",
+    secondary:"This is the secondary text for tip #3"
   },
 ]
 
@@ -48,14 +50,15 @@ function TabPanel(props) {
   const { value, index, content, ...other } = props;
 
   return (
-    <div
+    <Box
       role="tabpanel"
       hidden={value !== index}
       id={`vertical-tabpanel-${index}`}
       aria-labelledby={`vertical-tab-${index}`}
+      sx={{pl:3}}
       {...other}
     >
-      <Card sx={{ minHeight:1 }}>
+      <Card>
         <CardContent>
           <Typography variant="h5">
             {content.title}
@@ -65,13 +68,12 @@ function TabPanel(props) {
           </Typography>
         </CardContent>
         <CardMedia
-          src="https://www.gstatic.com/flights/app/lp/dates_benefits_dark.svg"
-          title="green iguana"
+          src="https://www.gstatic.com/flights/app/lp/dates_benefits_light.svg"
           component="img"
-          sx={{ minHeight:1/2, maxWidth: 1/3 }}
+          sx={{ mb:2, pl:2, width:{sm:"10%",md:"50%"} }}
         />
       </Card>
-    </div>
+    </Box>
   );
 }
 
@@ -85,27 +87,36 @@ function TabLabel(props) {
   const { PreferredIcon, itemIndex, selectedIndex, itemText,...other } = props;
 
   return (
-    <div
+    <Box
       role="tablelabel"
       id={`vertical-tablelabel-${itemIndex}`}
       aria-labelledby={`vertical-label-${itemIndex}`}
-      className='flex'
+      sx={{ width:"100%",display:'flex',flexGrow:1}}
       {...other}
     >
-      <Box>
-        <ListItemButton
-          selected={selectedIndex === itemIndex}
+      <ListItemButton
+        selected={selectedIndex === itemIndex}
+        sx={{width:'100%' ,height:"100%",display:'flex',flexGrow:1, flexDirection:"row"}}
+      >
+        <ListItemIcon>
+          <PreferredIcon />
+        </ListItemIcon>
+        <ListItemText
+          disableTypography={true}
+          primary={
+            <Typography variant='body2'>
+              {itemText.primary}
+            </Typography>
+          }
+          secondary={
+            <Typography textTransform="capitalize" variant='caption'>
+              {itemText.secondary}
+            </Typography>
+          }
         >
-          <ListItemIcon>
-            <PreferredIcon />
-          </ListItemIcon>
-          <ListItemText
-            primary= {itemText.primary}
-            secondary= {itemText.secondary}
-          />
-        </ListItemButton>
-      </Box>
-    </div>
+        </ListItemText>
+      </ListItemButton>
+    </Box>
   );
 }
 
@@ -131,47 +142,51 @@ export default function VerticalTabs() {
   };
 
   return (
-    <Box
-      sx={{ flexGrow: 1, bgcolor: 'background.paper', display: 'flex' }}
-    >
+    <Box sx={{ bgcolor:'background.paper', display:"flex",flexGrow:1}}>
       <Tabs
         orientation="vertical"
         value={value}
         onChange={handleChange}
         aria-label="usage tips"
         centered={true}
-        sx={{ height:"100%", minWidth:1/6, borderRight:1, borderColor: 'divider', display:'flex', flexGrow:1}}
+        sx={{minWidth:"30%",height:"100%",display:'flex',flexDirection:"column",flexGrow:1}}
       >
-        <Tab label={
-          <TabLabel
-            PreferredIcon={CalendarMonthIcon}
-            itemIndex={0}
-            selectedIndex={value}
-            itemText={TABLABELS[0]}
-          />
-        }
-        sx={{height:"20vh"}}
-        {...a11yProps(0)} />
-        <Tab label={
-          <TabLabel
-            PreferredIcon={CalendarMonthIcon}
-            itemIndex={1}
-            selectedIndex={value}
-            itemText={TABLABELS[1]}
-          />
-        }
-        sx={{height:"20vh"}}
-        {...a11yProps(1)} />
-        <Tab label={
-          <TabLabel
-            PreferredIcon={CalendarMonthIcon}
-            itemIndex={2}
-            selectedIndex={value}
-            itemText={TABLABELS[2]}
-          />
-        }
-        sx={{height:"20vh"}} 
-        {...a11yProps(2)} />
+        <Tab 
+          label={
+            <TabLabel
+              PreferredIcon={CalendarMonthIcon}
+              itemIndex={0}
+              selectedIndex={value}
+              itemText={TABLABELS[0]}
+            />
+          }
+          sx={{display:'flex',flexGrow:1}}
+          {...a11yProps(0)} 
+        />
+        <Tab 
+          label={
+            <TabLabel
+              PreferredIcon={TimelineIcon}
+              itemIndex={1}
+              selectedIndex={value}
+              itemText={TABLABELS[1]}
+            />
+          }
+          sx={{display:'flex',flexGrow:1}}
+          {...a11yProps(1)} 
+        />
+        <Tab 
+          label={
+            <TabLabel
+              PreferredIcon={NotificationAddIcon}
+              itemIndex={2}
+              selectedIndex={value}
+              itemText={TABLABELS[2]}
+            />
+          }
+          sx={{display:'flex',flexGrow:1}}
+          {...a11yProps(2)} 
+        />
       </Tabs>
       <TabPanel value={value} index={0} content={TABPANELS[0]}>
       </TabPanel>

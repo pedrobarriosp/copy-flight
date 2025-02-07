@@ -1,25 +1,12 @@
 import * as React from 'react';
-import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
-import Paper from '@mui/material/Paper';
-import Grid from '@mui/material/Grid2';
 import Footer_DialogSelect from './setup-footer-dialogSelect';
-import { Link } from '@mui/material';
+import {  Link, Stack, Typography } from '@mui/material';
 
 import LanguageIcon from '@mui/icons-material/Language';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import CurrencyExchangeIcon from '@mui/icons-material/CurrencyExchange';
 
-const Item = styled(Paper)(({ theme }) => ({
-  backgroundColor: '#fff',
-  ...theme.typography.body2,
-  padding: theme.spacing(1),
-  textAlign: 'center',
-  color: theme.palette.text.secondary,
-  ...theme.applyStyles('dark', {
-    backgroundColor: '#1A2027',
-  }),
-}));
 
 const LANGUAGEOPTONS = [
     {
@@ -75,23 +62,23 @@ export default function Configuration_Footer() {
 
     function handleLanguageChange(newLanguageValue){
         setLanguageValue(newLanguageValue)
-        setLanguageLabel(languageOptions.find((option) => option.value == newLanguageValue))
+        setLanguageLabel(languageOptions.find((option) => option.value == newLanguageValue).label)
     }
 
     function handleLocationChange(newLocationValue){
         setLocationValue(newLocationValue)
-        setLocationLabel(locationOptions.find((option) => option.value == newLocationValue))
+        setLocationLabel(locationOptions.find((option) => option.value == newLocationValue).label)
     }
 
     function handleCurrencyChange(newCurrencyValue){
         setCurrencyValue(newCurrencyValue)
-        setCurrencyLabel(currencyOptions.find((option) => option.value == newCurrencyValue))
+        setCurrencyLabel(currencyOptions.find((option) => option.value == newCurrencyValue).label)
     }
 
     return (
-        <Box sx={{ flexGrow: 1 }}>
-            <Grid container spacing={2} columns={16}>
-                <Grid size={8}>
+        <Box sx={{ flexGrow: 1, justifyContent:"center" }}>
+            <Stack sx={{justifyContent:'center', flexWrap:'wrap', mb:3}} direction='row' useFlexGap spacing={2}>
+                <Box sx={{px:1, border:1, borderRadius:6, borderColor:'grey.300'}}>
                     <Footer_DialogSelect
                         identifier = "languageDialog"
                         dialogTitle='Select your language'
@@ -101,8 +88,8 @@ export default function Configuration_Footer() {
                         currentValue={languageValue}
                         setParentValue={handleLanguageChange}
                     />
-                </Grid>
-                <Grid size={4}>
+                </Box>
+                <Box sx={{px:1, border:1, borderRadius:6, borderColor:'grey.300'}}>
                     <Footer_DialogSelect
                         identifier = "locationDialog"
                         dialogTitle='Select your location'
@@ -112,8 +99,8 @@ export default function Configuration_Footer() {
                         currentValue={locationValue}
                         setParentValue={handleLocationChange}
                     />
-                </Grid>
-                <Grid size={4}>
+                </Box>
+                <Box sx={{px:1, border:1, borderRadius:6, borderColor:'grey.300'}}>
                     <Footer_DialogSelect
                         identifier = "currencyDialog"
                         dialogTitle='Select your currency'
@@ -123,50 +110,53 @@ export default function Configuration_Footer() {
                         currentValue={currencyValue}
                         setParentValue={handleCurrencyChange}
                     />
-                </Grid>
-            </Grid>
-            <Grid container spacing={2} columns={16}>
-                <Grid size={16}>
-                    <Item>{`Current language and currency options applied: ${languageLabel} - ${locationLabel} - ${currencyLabel}`}</Item>
-                </Grid>
-            </Grid>
-            <Grid container spacing={2} columns={16}>
-                <Grid size={16}>
-                    <Item>Displayed currencies may differ from the currencies used to purchase flights. Learn More</Item>
-                </Grid>
-            </Grid>
-            <Grid container spacing={2} columns={16}>
-                <Grid size={2}>
+                </Box>
+            </Stack>
+            <Stack direction='column' columns={16} spacing={1}>
+                <Box sx={{display:'flex', justifyContent:'center'}}>
+                    <Typography align='center' variant='body2' color='grey.600'>
+                        {`Current language and currency options applied: ${languageLabel} - ${locationLabel} - ${currencyLabel}`}
+                    </Typography>
+                </Box>
+                <Box sx={{display:'flex', justifyContent:'center'}}>
+                    <Typography align='center' variant='body2' color='grey.600'>
+                        Displayed currencies may differ from the currencies used to purchase flights. Learn More
+                    </Typography>
+                </Box>
+                
+            </Stack>
+            <Stack direction='row' sx={{justifyContent:'center', flexWrap:'wrap', mt:3}} useFlexGap spacing={3}>
+                <Box>
                     <Link href="#" variant="body2" underline="hover">
                         About
                     </Link>
-                </Grid>
-                <Grid size={2}>
+                </Box>
+                <Box variant='outlined'>
                     <Link href="#" variant="body2" underline="hover">
                         Privacy
                     </Link>
-                </Grid>
-                <Grid size={2}>
+                </Box>
+                <Box>
                     <Link href="#" variant="body2" underline="hover">
                         Terms
                     </Link>
-                </Grid>
-                <Grid size={4}>
+                </Box>
+                <Box>
                     <Link href="#" variant="body2" underline="hover">
                         Join user studies
                     </Link>
-                </Grid>
-                <Grid size={2}>
+                </Box>
+                <Box>
                     <Link href="#" variant="body2" underline="hover">
                         Feedback
                     </Link>
-                </Grid>
-                <Grid size={4}>
+                </Box>
+                <Box>
                     <Link href="#" variant="body2" underline="hover">
                         Help Center
                     </Link>
-                </Grid>
-            </Grid>
+                </Box>
+            </Stack>
         </Box>
     );
 }
