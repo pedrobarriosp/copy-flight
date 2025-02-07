@@ -3,7 +3,7 @@ import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import { Box } from '@mui/material';
+import { Box, Divider } from '@mui/material';
 
 const LOPEMIPSUM = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget."
 
@@ -22,6 +22,7 @@ export default function FAQ_Accordion() {
                 {LOPEMIPSUM}
             </AccordionDetails>
         </Accordion>
+        <Divider/>
         <Accordion disableGutters sx={{boxShadow:0}}>
             <AccordionSummary
                 expandIcon={<ExpandMoreIcon />}
@@ -34,6 +35,7 @@ export default function FAQ_Accordion() {
                 {LOPEMIPSUM}
             </AccordionDetails>
         </Accordion>
+        <Divider/>
         <Accordion disableGutters sx={{boxShadow:0}}>
             <AccordionSummary
                 expandIcon={<ExpandMoreIcon />}
@@ -46,6 +48,7 @@ export default function FAQ_Accordion() {
                 {LOPEMIPSUM}
             </AccordionDetails>
         </Accordion>
+        <Divider/>
         <Accordion disableGutters sx={{boxShadow:0}}>
             <AccordionSummary
                 expandIcon={<ExpandMoreIcon />}
@@ -58,6 +61,7 @@ export default function FAQ_Accordion() {
                 {LOPEMIPSUM}
             </AccordionDetails>
         </Accordion>
+        <Divider/>
         <Accordion disableGutters sx={{boxShadow:0}}>
             <AccordionSummary
                 expandIcon={<ExpandMoreIcon />}
