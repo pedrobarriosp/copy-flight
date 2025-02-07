@@ -120,7 +120,7 @@ export default function Configuration_Footer() {
                 </Box>
                 <Box sx={{display:'flex', justifyContent:'center'}}>
                     <Typography align='center' variant='body2' color='grey.600'>
-                        Displayed currencies may differ from the currencies used to purchase flights. Learn More
+                        Displayed currencies may differ from the currencies used to purchase flights
                     </Typography>
                 </Box>
                 
