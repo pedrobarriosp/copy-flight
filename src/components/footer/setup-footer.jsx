@@ -25,7 +25,7 @@ const LOCATIONOPTIONS = [
         value:"usa"
     },
     {
-        label:"Español",
+        label:"España",
         value:"spain"
     },
 ]
