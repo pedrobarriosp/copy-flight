@@ -3,13 +3,14 @@ import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import { Box } from '@mui/material';
 
 const LOPEMIPSUM = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget."
 
 export default function FAQ_Accordion() {
   return (
-    <div>
-        <Accordion>
+    <Box sx={{my:2}}>
+        <Accordion disableGutters sx={{boxShadow:0}}>
             <AccordionSummary
                 expandIcon={<ExpandMoreIcon />}
                 aria-controls="faq1-content"
@@ -21,7 +22,7 @@ export default function FAQ_Accordion() {
                 {LOPEMIPSUM}
             </AccordionDetails>
         </Accordion>
-        <Accordion>
+        <Accordion disableGutters sx={{boxShadow:0}}>
             <AccordionSummary
                 expandIcon={<ExpandMoreIcon />}
                 aria-controls="faq2-content"
@@ -33,42 +34,42 @@ export default function FAQ_Accordion() {
                 {LOPEMIPSUM}
             </AccordionDetails>
         </Accordion>
-        <Accordion>
+        <Accordion disableGutters sx={{boxShadow:0}}>
             <AccordionSummary
                 expandIcon={<ExpandMoreIcon />}
                 aria-controls="faq3-content"
                 id="faq3-header"
             >
-                <Typography component="span">How can I find cheap flights for a weekend getaway?</Typography>
+                <Typography component="span">How can I find flight deals if my travel plans are flexible?</Typography>
             </AccordionSummary>
             <AccordionDetails>
                 {LOPEMIPSUM}
             </AccordionDetails>
         </Accordion>
-        <Accordion>
+        <Accordion disableGutters sx={{boxShadow:0}}>
             <AccordionSummary
                 expandIcon={<ExpandMoreIcon />}
                 aria-controls="faq4-content"
                 id="faq4-header"
             >
-                <Typography component="span">How can I find cheap flights for a weekend getaway?</Typography>
+                <Typography component="span">How can I find cheap flights to anywhere?</Typography>
             </AccordionSummary>
             <AccordionDetails>
                 {LOPEMIPSUM}
             </AccordionDetails>
         </Accordion>
-        <Accordion>
+        <Accordion disableGutters sx={{boxShadow:0}}>
             <AccordionSummary
                 expandIcon={<ExpandMoreIcon />}
                 aria-controls="faq5-content"
                 id="faq5-header"
             >
-                <Typography component="span">How can I find cheap flights for a weekend getaway?</Typography>
+                <Typography component="span">How can I get flight alerts for my trip?</Typography>
             </AccordionSummary>
             <AccordionDetails>
                 {LOPEMIPSUM}
             </AccordionDetails>
         </Accordion>
-    </div>
+    </Box>
   );
 }
