@@ -2,7 +2,7 @@ import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import ButtonBase from '@mui/material/ButtonBase';
 import Typography from '@mui/material/Typography';
-import LightMapImage from '../assets/staticmap-light.png'
+import LightMapImage from '../../assets/staticmap-light.png'
 
 const image = {
   src: LightMapImage,

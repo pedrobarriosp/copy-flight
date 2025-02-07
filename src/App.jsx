@@ -1,11 +1,11 @@
 import Divider from '@mui/material/Divider';
-import FAQ_Accordion from './components/faq-accordion'
-import Tips_Tabs from './components/tips-tabs'
-import PopularRoutes_Grid from './components/popularRoutes-grid';
-import Configuration_Footer from './components/setup-footer';
-import Map_Navigation from './components/map-navigation';
-import Flight_Search from './components/flightSearch-card';
-import FlightSelection_Table from './components/flightSelection-table';
+import FAQ_Accordion from './components/general/faq-accordion'
+import Tips_Tabs from './components/general/tips-tabs'
+import PopularRoutes_Grid from './components/general/popularRoutes-grid';
+import Configuration_Footer from './components/footer/setup-footer';
+import Map_Navigation from './components/general/map-navigation';
+import Flight_Search from './components/flight-search/flightSearch-card';
+import FlightSelection_Table from './components/flight-selection/flightSelection-table';
 import React from 'react';
 import { Box, Link, Typography } from '@mui/material';
 import './App.css'
