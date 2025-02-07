@@ -36,6 +36,7 @@ export default function Footer_DialogSelect({identifier,dialogTitle, DialogIcon,
 
   const handleClose = (event, reason) => {
     if (reason == 'backdropClick') {
+      setParentValue(radioValue)
       setOpen(false);
       return
     }
@@ -45,6 +46,7 @@ export default function Footer_DialogSelect({identifier,dialogTitle, DialogIcon,
     }
     if (event.target.name.includes("accept")){
       setParentValue(radioValue)
+      setOpen(false);
     }
   };
 
