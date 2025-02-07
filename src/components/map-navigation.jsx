@@ -12,7 +12,7 @@ const image = {
 
 const ImageButton = styled(ButtonBase)(({ theme }) => ({
   position: 'relative',
-  height: 200,
+  height: 300,
   [theme.breakpoints.down('sm')]: {
     width: '100% !important', // Overrides inline-style
     height: 100,
@@ -26,7 +26,7 @@ const ImageButton = styled(ButtonBase)(({ theme }) => ({
       opacity: 0,
     },
     '& .MuiTypography-root': {
-      border: '4px solid currentColor',
+      border: '4px solid currentColor'
     },
   },
 }));
@@ -76,17 +76,18 @@ const ImageMarked = styled('span')(({ theme }) => ({
 
 export default function Map_Navigation() {
   return (
-    <Box sx={{ display: 'flex', flexWrap: 'wrap', minWidth: 300, width: '100%' }}>
+    <Box sx={{ display: 'flex', flexWrap: 'wrap', minWidth: 300, width: '100%'}}>
       <ImageButton
         focusRipple
         key={image.title}
         style={{
           width: image.width,
         }}
+        sx={{borderRadius:4}}
       >
-        <ImageSrc style={{ backgroundImage: `url(${image.src})` }} />
-        <ImageBackdrop className="MuiImageBackdrop-root" />
-        <Image>
+        <ImageSrc sx={{borderRadius:4}} style={{ backgroundImage: `url(${image.src})` }} />
+        <ImageBackdrop sx={{borderRadius:4}} className="MuiImageBackdrop-root" />
+        <Image sx={{borderRadius:4}}>
           <Typography
             component="span"
             variant="subtitle1"
